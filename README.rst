@@ -3,6 +3,18 @@ mojo-startup
 =======================
 This package setups up a pattern for extremely early pre-configuration settings and behaviors.
 
+===========
+Description
+===========
+This module does one thing very important.  It establishes the path for all other 'mojo' packages
+on where to load default config from.  This is very important because it provides extensibility
+as early as possible in the running of any code.
+
+The pattern established for defaults is that a variable is:
+* Variable is set to a hard coded default
+* startup configuration is checked for an override
+* the environment variables are checked for an override
+
 =================
 Code Organization
 =================
