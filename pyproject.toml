@@ -1,6 +1,6 @@
 [tool.poetry]
-name = "<package name>"
-description = "<package description>"
+name = "mojo-startup"
+description = "Automation Mojo Startup Package"
 version = "0.0.1"
 authors = []
 readme = "README.rst"
