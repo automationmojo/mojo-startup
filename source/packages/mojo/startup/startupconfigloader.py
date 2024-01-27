@@ -29,7 +29,7 @@ class StartupConfigLoader:
 
         return
     
-    def get_variable_value(self, variable_name: str, default: Optional[str]) -> str:
+    def get_variable_value(self, variable_name: str, default: Optional[str]=None) -> str:
 
         vval = default
 

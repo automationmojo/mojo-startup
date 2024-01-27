@@ -4,7 +4,9 @@ mojo-startup
 This package sets up a pattern for extremely early pre-configuration of variable extensibility
 hook for the startup configuration.  This module looks for a single environment variable to be set:
 
-```MJR_STARTUP_SETTINGS```
+```
+MJR_STARTUP_SETTINGS
+```
 
 The value of this variable is accessed like so:
 
