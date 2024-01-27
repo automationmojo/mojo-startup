@@ -44,7 +44,7 @@ class StartupConfigLoader:
             if variable_name in self._conf_section:
                 vval = self._conf_section[variable_name]
 
-        if converter is not None:
+        if converter is not None and isinstance(vval, str):
             vval = converter(vval)
 
         return vval
