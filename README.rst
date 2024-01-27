@@ -5,11 +5,13 @@ This package sets up a pattern for extremely early pre-configuration of variable
 hook for the startup configuration.  This module looks for a single environment variable to be set:
 
 .. code-block::
+
     MJR_STARTUP_SETTINGS
 
 The value of this variable is accessed like so:
 
 .. code-block::
+
     from mojo.startup.startupvariables import MOJO_STARTUP_VARIABLES
     
     print(MOJO_STARTUP_VARIABLES.MJR_STARTUP_SETTINGS)
@@ -24,6 +26,7 @@ The `mojo-startup` module makes a singleton `ConfigParser` available for other m
 configuration parser can be accessed by:
 
 .. code-block::
+    
     from mojo.startup.wellknown import StartupConfigSingleton
     
     cparser = StartupConfigSingleton()

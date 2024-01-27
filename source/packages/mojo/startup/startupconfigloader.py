@@ -1,5 +1,10 @@
 
-from typing import Optional
+from typing import Any, Optional
+from typing_extensions import Protocol
+
+class SettingConverter(Protocol):
+    def __call__(self, string_value: str) -> Any:
+        return
 
 import os
 
@@ -29,7 +34,7 @@ class StartupConfigLoader:
 
         return
     
-    def get_variable_value(self, variable_name: str, default: Optional[str]=None) -> str:
+    def get_variable_value(self, variable_name: str, default: Optional[str]=None, converter: Optional[SettingConverter] = None) -> str:
 
         vval = default
 
@@ -38,5 +43,8 @@ class StartupConfigLoader:
         elif self._conf_section is not None:
             if variable_name in self._conf_section:
                 vval = self._conf_section[variable_name]
+
+        if converter is not None:
+            vval = converter(vval)
 
         return vval
