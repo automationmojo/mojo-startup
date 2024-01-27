@@ -83,11 +83,11 @@ class ConfigurationTests(unittest.TestCase):
         from mojo.startup.startupconfigloader import StartupConfigLoader
 
         scloader = StartupConfigLoader("BLAH")
-        csv_converter = lambda sval: set(sval.split(','))
+        csv_converter = lambda sval: list(sval.split(','))
 
         sval = scloader.get_variable_value("both_variable", default="fromdefault", converter=csv_converter)
 
-        assert(type(sval) == set)
+        assert(type(sval) == list)
         assert(len(sval) == 3)
         assert(sval[0] == 'blah')
         assert(sval[2] == 'blahblahblah')
