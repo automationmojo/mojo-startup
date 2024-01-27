@@ -39,4 +39,4 @@ class StartupConfigLoader:
             if variable_name in self._conf_section:
                 vval = self._conf_section[variable_name]
 
-        return
+        return vval
