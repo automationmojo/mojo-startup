@@ -6,12 +6,12 @@ import tempfile
 
 TEST_CONFIGURATION = """
 [BLAH]
-test_setting=blah
+test_setting=fromfile
 """
 
 class ConfigurationTests(unittest.TestCase):
 
-    def test_config_parse(self):
+    def test_config_loads_from_file(self):
 
         tmp_config_file = tempfile.mktemp()
         with open(tmp_config_file, 'w+') as tcf:
@@ -19,14 +19,32 @@ class ConfigurationTests(unittest.TestCase):
 
         os.environ["MJR_STARTUP_SETTINGS"] = tmp_config_file
 
-        from mojo.startup.wellknown import StartupConfigSingleton
+        from mojo.startup.startupconfigloader import StartupConfigLoader
 
-        suconf = StartupConfigSingleton()
+        scloader = StartupConfigLoader("BLAH")
 
-        blah_sec = suconf["BLAH"]
-        sval = blah_sec["test_setting"]
+        sval = scloader.get_variable_value("test_setting")
 
-        assert(sval == "blah")
+        assert(sval == "fromfile")
+
+        return
+    
+    def test_config_loads_from_environment(self):
+
+        tmp_config_file = tempfile.mktemp()
+        with open(tmp_config_file, 'w+') as tcf:
+            tcf.write(TEST_CONFIGURATION)
+
+        os.environ["MJR_STARTUP_SETTINGS"] = tmp_config_file
+        os.environ["test_setting"] = "fromenviron"
+
+        from mojo.startup.startupconfigloader import StartupConfigLoader
+
+        scloader = StartupConfigLoader("BLAH")
+
+        sval = scloader.get_variable_value("test_setting")
+
+        assert(sval == "fromenviron")
 
         return
 

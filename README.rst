@@ -1,7 +1,35 @@
 =======================
 mojo-startup
 =======================
-This package sets up a pattern for extremely early pre-configuration of settings behaviors.
+This package sets up a pattern for extremely early pre-configuration of variable extensibility
+hook for the startup configuration.  This module looks for a single environment variable to be set:
+
+```MJR_STARTUP_SETTINGS```
+
+The value of this variable is accessed like so:
+
+```
+    from mojo.startup.startupvariables import MOJO_STARTUP_VARIABLES
+
+    print(MOJO_STARTUP_VARIABLES.MJR_STARTUP_SETTINGS)
+```
+
+The `MJR_STARTUP_SETTINGS` variable is set to the path for a config file that should point to the
+configuration file that is used to startup the runtime.
+
+The default value for the `MJR_STARTUP_SETTINGS` variable is `~/.mojo.config`.
+
+The `mojo-startup` module makes a singleton `ConfigParser` available for other modules to use.  This
+configuration parser can be accessed by:
+
+```
+    from mojo.startup.wellknown import StartupConfigSingleton
+
+    cparser = StartupConfigSingleton()
+
+    defaults_section = cparser["DEFAULTS"]
+    someval = defaults_section["SOME_VARIABLE"]
+```
 
 ===========
 Description
