@@ -1,3 +1,14 @@
+"""
+.. module:: converters
+    :platform: Darwin, Linux, Unix, Windows
+    :synopsis: Module which contains various converters that are used to convert settings into python types.
+
+.. moduleauthor:: Myron Walker <myron.walker@gmail.com>
+"""
+
+__author__ = "Myron Walker"
+__copyright__ = "Copyright 2020, Myron W Walker"
+__credits__ = []
 
 from typing import List
 

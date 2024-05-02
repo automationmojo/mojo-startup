@@ -1,3 +1,15 @@
+"""
+.. module:: startupconfigloader
+    :platform: Darwin, Linux, Unix, Windows
+    :synopsis: Module that contains the :class:`StartupConfigLoader` object.
+
+.. moduleauthor:: Myron Walker <myron.walker@gmail.com>
+"""
+
+__author__ = "Myron Walker"
+__copyright__ = "Copyright 2020, Myron W Walker"
+__credits__ = []
+
 
 from typing import Any, Optional
 from typing_extensions import Protocol

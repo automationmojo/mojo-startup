@@ -1,3 +1,14 @@
+"""
+.. module:: wellknown
+    :platform: Darwin, Linux, Unix, Windows
+    :synopsis: Module that provides a wellknow startup configuration singleton.
+
+.. moduleauthor:: Myron Walker <myron.walker@gmail.com>
+"""
+
+__author__ = "Myron Walker"
+__copyright__ = "Copyright 2020, Myron W Walker"
+__credits__ = []
 
 import os
 
