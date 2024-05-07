@@ -676,7 +676,7 @@ test = ["pytest"]
 name = "typing-extensions"
 version = "4.11.0"
 description = "Backported and Experimental Type Hints for Python 3.8+"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.8"
 files = [
@@ -721,4 +721,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.9,<4.0"
-content-hash = "ede5f03f607d688058dd02d02f462748d85175f3881196328c8d19e37358092c"
+content-hash = "445a0e6d9ee64ce6177b0693914e18059b49a64478c259334a5db89fb2c85d9a"
