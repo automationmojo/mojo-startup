@@ -11,7 +11,7 @@ __copyright__ = "Copyright 2020, Myron W Walker"
 __credits__ = []
 
 
-from typing import Any, Optional
+from typing import Any, Optional, Union
 from typing_extensions import Protocol
 
 class SettingConverter(Protocol):
@@ -46,7 +46,17 @@ class StartupConfigLoader:
 
         return
     
-    def get_variable_value(self, variable_name: str, default: Optional[str]=None, converter: Optional[SettingConverter] = None) -> str:
+    def get_variable_value(self, variable_name: str, default: Optional[str]=None, converter: Optional[SettingConverter] = None) -> Union[str, Any]:
+        """
+            The the value of a variable from the environment.  If an environment variable is not found look in the settings file.
+            If the variable is not in the settings file, use the default value being passed in.
+
+            :param variable_name: The name of the variable to lookup
+            :param default: The default value to return if the variable is not found.
+            :param converter: A lamba expression of function that will convert the str value to a consumable python type.
+
+            :returns: A str value or type if a converter was passed.
+        """
 
         vval = default
 

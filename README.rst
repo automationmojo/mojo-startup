@@ -17,8 +17,8 @@ The value of this variable is accessed like so:
     print(MOJO_STARTUP_VARIABLES.MJR_STARTUP_SETTINGS)
 
 
-The `MJR_STARTUP_SETTINGS` variable is set to the path for a config file that should point to the
-configuration file that is used to startup the runtime.
+The `MJR_STARTUP_SETTINGS` is an environment variable that is is set to the path for a config file that should point to the
+configuration file that is used to startup the environment of a process.
 
 The default value for the `MJR_STARTUP_SETTINGS` variable is `~/.mojo.config`.
 
@@ -39,7 +39,7 @@ Description
 ===========
 This module does one very important thing.  It establishes the path for all other 'mojo' packages
 on where to load default config from.  This is very important because it provides extensibility
-as early as possible in the running of any code.
+as early as possible before the running of any code.
 
 The pattern established for defaults for variables is:
 * Variable is set to a hard coded default
