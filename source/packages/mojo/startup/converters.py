@@ -12,8 +12,6 @@ __credits__ = []
 
 from typing import List, Union
 
-import os
-
 
 def convert_value_to_bool(sval: Union[bytes, str, int]) -> bool:
     
