@@ -49,6 +49,13 @@ class ConvertToListTests(unittest.TestCase):
         assert len(result_list) == 7, "The resulting list should have been 7 long." 
         return
     
+    def test_convert_space_seperated_values_to_list__dblspace(self):
+        value_to_convert = "aa  bb  cc  dd  dd  ee  bb"
+        result_list = SPSV_TO_LIST_CONVERTER(value_to_convert)
+
+        assert len(result_list) == 7, "The resulting list should have been 7 long." 
+        return
+    
 
 class ConvertToUniqueListTests(unittest.TestCase):
 
@@ -82,6 +89,14 @@ class ConvertToUniqueListTests(unittest.TestCase):
 
     def test_convert_space_seperated_values_to_unique_list(self):
         value_to_convert = "aa bb cc dd dd ee bb"
+        result_list = SPSV_TO_UNIQUE_LIST_CONVERTER(value_to_convert)
+
+        assert len(result_list) == 5, "The resulting length should have been 5 after duplicates were removed."
+
+        return
+    
+    def test_convert_space_seperated_values_to_unique_list__dblspace(self):
+        value_to_convert = "aa  bb  cc  dd  dd  ee  bb"
         result_list = SPSV_TO_UNIQUE_LIST_CONVERTER(value_to_convert)
 
         assert len(result_list) == 5, "The resulting length should have been 5 after duplicates were removed."

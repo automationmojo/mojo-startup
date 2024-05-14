@@ -46,9 +46,14 @@ def convert_value_to_bool(sval: Union[bytes, str, int]) -> bool:
 
 
 def convert_sep_value_to_list(sval: str, sep: str) -> List[str]:
-    
+
     val_list = []
     for v in sval.split(sep):
+
+        # Skip empty space items created for whitespace seperators
+        if (sep == ' ' or sep == '\t') and v == '':
+            continue
+        
         val_list.append(v.strip())
 
     return val_list
@@ -58,6 +63,11 @@ def convert_sep_value_to_unique_list(sval: str, sep: str) -> List[str]:
     
     val_set = set()
     for v in sval.split(sep):
+
+        # Skip empty space items created for whitespace seperators
+        if (sep == ' ' or sep == '\t') and v == '':
+            continue
+
         val_set.add(v.strip())
 
     val_list = list(val_set)
