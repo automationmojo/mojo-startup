@@ -19,16 +19,27 @@ from configparser import ConfigParser
 
 STARTUP_CONFIG = None
 
-from mojo.startup.startupvariables import MOJO_STARTUP_VARIABLES
+from mojo.collections.singletons import SINGLETON_LOCK
+
+from mojo.startup.startupvariables import MOJO_STARTUP_VARIABLES, resolve_startup_variables
 
 def StartupConfigSingleton():
 
     global STARTUP_CONFIG
 
-    if STARTUP_CONFIG is None:
-        STARTUP_CONFIG = ConfigParser()
-        if os.path.exists(MOJO_STARTUP_VARIABLES.MJR_STARTUP_SETTINGS):
-            STARTUP_CONFIG.read(MOJO_STARTUP_VARIABLES.MJR_STARTUP_SETTINGS)
+    SINGLETON_LOCK.acquire()
+    try:
+        if STARTUP_CONFIG is None:
+            # The startup variables are the only default setting that gets set via environment variable
+            # so we need to call resolve on the startup variables super early before we allow any other
+            # settings to be loaded.
+            resolve_startup_variables()
+
+            STARTUP_CONFIG = ConfigParser()
+            if os.path.exists(MOJO_STARTUP_VARIABLES.MJR_STARTUP_SETTINGS):
+                STARTUP_CONFIG.read(MOJO_STARTUP_VARIABLES.MJR_STARTUP_SETTINGS)
+    finally:
+        SINGLETON_LOCK.release()
 
     return STARTUP_CONFIG
 
