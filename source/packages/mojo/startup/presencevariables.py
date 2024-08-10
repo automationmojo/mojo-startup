@@ -30,6 +30,7 @@ class MOJO_PRESENCE_VARIABLES:
     MJR_NAME = None
     MJR_HOME_DIRECTORY = None
     MJR_EXTENSION_MODULES = None
+    MJR_STARTUP_SETTINGS = None
 
 
 def resolve_presence_variables():
@@ -45,5 +46,8 @@ def resolve_presence_variables():
 
     MOJO_PRESENCE_VARIABLES.MJR_EXTENSION_MODULES = scloader.get_variable_value("MJR_EXTENSION_MODULES", default=MOJO_PRESENCE_DEFAULTS.MJR_EXTENSION_MODULES)
     ctx.insert(ContextPaths.PRESENCE_EXTENSION_MODULES, MOJO_PRESENCE_VARIABLES.MJR_EXTENSION_MODULES)
+
+    
+    MJR_STARTUP_SETTINGS = os.path.abspath(os.path.expandvars(os.path.expanduser(MJR_STARTUP_SETTINGS)))
 
     return

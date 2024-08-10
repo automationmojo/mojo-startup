@@ -15,7 +15,11 @@ from typing import Optional
 
 import os
 
+
+from mojo.startup.startupdefaults import MOJO_STARTUP_DEFAULTS
+
 from mojo.startup.startupconfigloader import StartupConfigLoader
+
 
 scloader = StartupConfigLoader("MOJO-STARTUP")
 
@@ -24,7 +28,6 @@ class MOJO_PRESENCE_DEFAULTS:
 
     MJR_NAME = "mjr"
     MJR_HOME_DIRECTORY = os.path.expanduser(os.path.join("~", MJR_NAME))
-    MJR_STARTUP_SETTINGS = os.path.expanduser(os.path.join("~", ".mojo.config"))
     MJR_EXTENSION_MODULES = ""
     
 
@@ -51,7 +54,7 @@ def establish_presence_settings(*, name: Optional[str]=None, home_dir: Optional[
         if home_dir is not None:
             MOJO_PRESENCE_DEFAULTS.MJR_HOME_DIRECTORY = home_dir
         if settings_file is not None:
-            MOJO_PRESENCE_DEFAULTS.MJR_STARTUP_SETTINGS = settings_file
+            MOJO_STARTUP_DEFAULTS.MJR_STARTUP_SETTINGS = settings_file
         if extension_modules is not None:
             MOJO_PRESENCE_DEFAULTS.MJR_EXTENSION_MODULES = extension_modules
 

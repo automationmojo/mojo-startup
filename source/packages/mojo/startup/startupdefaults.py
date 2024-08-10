@@ -16,3 +16,4 @@ import os
 class MOJO_STARTUP_DEFAULTS:
 
     MJR_STARTUP_SETTINGS = os.path.expanduser(os.path.join("~", ".mojo.config"))
+

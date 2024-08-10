@@ -16,6 +16,4 @@ import os
 class MOJO_STARTUP_VARIABLES:
 
     MJR_STARTUP_SETTINGS = os.path.expanduser(os.path.join("~", ".mojo.config"))
-    if "MJR_STARTUP_SETTINGS" in os.environ:
-        MJR_STARTUP_SETTINGS = os.environ["MJR_STARTUP_SETTINGS"]
-        MJR_STARTUP_SETTINGS = os.path.abspath(os.path.expandvars(os.path.expanduser(MJR_STARTUP_SETTINGS)))
+ 
