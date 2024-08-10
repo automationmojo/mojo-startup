@@ -18,12 +18,10 @@ import os
 from mojo.collections.contextpaths import ContextPaths
 from mojo.collections.wellknown import ContextSingleton
 
+from mojo.startup.startupvariables import resolve_startup_variables, MOJO_STARTUP_VARIABLES
+
 from mojo.startup.startupconfigloader import StartupConfigLoader
 from mojo.startup.presencesettings import MOJO_PRESENCE_DEFAULTS
-
-
-scloader = StartupConfigLoader("MOJO-STARTUP")
-
 
 class MOJO_PRESENCE_VARIABLES:
 
@@ -34,6 +32,8 @@ class MOJO_PRESENCE_VARIABLES:
 
 
 def resolve_presence_variables():
+
+    scloader = StartupConfigLoader("MOJO-STARTUP")
 
     ctx = ContextSingleton()
 
@@ -46,8 +46,5 @@ def resolve_presence_variables():
 
     MOJO_PRESENCE_VARIABLES.MJR_EXTENSION_MODULES = scloader.get_variable_value("MJR_EXTENSION_MODULES", default=MOJO_PRESENCE_DEFAULTS.MJR_EXTENSION_MODULES)
     ctx.insert(ContextPaths.PRESENCE_EXTENSION_MODULES, MOJO_PRESENCE_VARIABLES.MJR_EXTENSION_MODULES)
-
-    
-    MJR_STARTUP_SETTINGS = os.path.abspath(os.path.expandvars(os.path.expanduser(MJR_STARTUP_SETTINGS)))
 
     return

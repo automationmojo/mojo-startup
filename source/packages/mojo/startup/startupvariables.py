@@ -13,7 +13,17 @@ __credits__ = []
 
 import os
 
+from mojo.startup.startupdefaults import MOJO_STARTUP_DEFAULTS
+
 class MOJO_STARTUP_VARIABLES:
 
-    MJR_STARTUP_SETTINGS = os.path.expanduser(os.path.join("~", ".mojo.config"))
+    MJR_STARTUP_SETTINGS = MOJO_STARTUP_DEFAULTS.MJR_STARTUP_SETTINGS
  
+
+def resolve_startup_variables():
+
+    if "MJR_STARTUP_SETTINGS" in os.environ:
+        MJR_STARTUP_SETTINGS = os.environ["MJR_STARTUP_SETTINGS"]
+        MJR_STARTUP_SETTINGS = os.path.abspath(os.path.expandvars(os.path.expanduser(MJR_STARTUP_SETTINGS)))
+
+    return
