@@ -26,8 +26,8 @@ scloader = StartupConfigLoader("MOJO-STARTUP")
 
 class MOJO_PRESENCE_DEFAULTS:
 
-    MJR_NAME = "mjr"
-    MJR_HOME_DIRECTORY = os.path.expanduser(os.path.join("~", MJR_NAME))
+    MJR_NAME = "MJR"
+    MJR_HOME_DIRECTORY = os.path.expanduser(os.path.join("~", MJR_NAME.lower()))
     MJR_EXTENSION_MODULES = ""
     
 
