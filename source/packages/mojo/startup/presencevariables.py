@@ -11,14 +11,10 @@ __author__ = "Myron Walker"
 __copyright__ = "Copyright 2020, Myron W Walker"
 __credits__ = []
 
-from typing import Optional
-
 import os
 
 from mojo.collections.contextpaths import ContextPaths
 from mojo.collections.wellknown import ContextSingleton
-
-from mojo.startup.startupvariables import resolve_startup_variables, MOJO_STARTUP_VARIABLES
 
 from mojo.startup.startupconfigloader import StartupConfigLoader
 from mojo.startup.presencesettings import MOJO_PRESENCE_DEFAULTS

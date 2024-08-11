@@ -15,14 +15,7 @@ from typing import Optional
 
 import os
 
-
 from mojo.startup.startupdefaults import MOJO_STARTUP_DEFAULTS
-
-from mojo.startup.startupconfigloader import StartupConfigLoader
-
-
-scloader = StartupConfigLoader("MOJO-STARTUP")
-
 
 class MOJO_PRESENCE_DEFAULTS:
 
