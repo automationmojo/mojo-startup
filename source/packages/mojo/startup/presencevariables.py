@@ -24,8 +24,6 @@ class MOJO_PRESENCE_VARIABLES:
     MJR_NAME = None
     MJR_HOME_DIRECTORY = None
     MJR_EXTENSION_MODULES = None
-    MJR_STARTUP_SETTINGS = None
-
 
 def resolve_presence_variables():
 
